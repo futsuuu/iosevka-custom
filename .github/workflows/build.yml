@@ -1,0 +1,49 @@
+name: Build font
+
+on:
+  push:
+    tags:
+      - "release"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y fontforge python3-fontforge ttfautohint nodejs npm
+
+      - name: Build Iosevka
+        run: |
+          git clone --depth 1 https://github.com/be5invis/Iosevka.git
+          mv private-build-plans.toml Iosevka
+          cd Iosevka
+          npm install
+          npm run build -- ttf::iosevka-custom
+
+      - name: Download patcher
+        run: |
+          wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
+          unzip -d fontpatcher FontPatcher.zip
+
+      - name: Patch fonts
+        run: |
+          for file in Iosevka/dist/iosevka-custom/ttf/*; do
+          fontforge \
+          -script fontpatcher/font-patcher \
+          --complete --adjust-line-height \
+          --quiet --outputdir font \
+          $file
+          done
+
+      - name: Convert to zip
+        run: zip font.zip -r font
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "font.zip"
