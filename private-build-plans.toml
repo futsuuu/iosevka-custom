@@ -51,7 +51,7 @@ q = "earless-corner-tailed-serifless"
 r = "hookless-top-serifed"
 t = "standard-short-neck"
 v = "curly-serifless"
-y = "cursive"
+y = "cursive-serifless"
 
   [buildPlans.iosevka-custom.ligations]
   inherits = "clike"
