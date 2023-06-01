@@ -6,33 +6,26 @@ no-cv-ss = true
 export-glyph-names = false
 
 [buildPlans.iosevka-custom.variants.design]
-capital-a = "curly-serifless"
 capital-d = "more-rounded-serifless"
-capital-g = "toothless-rounded-serifless-hooked"
 capital-m = "slanted-sides-hanging-serifless"
 capital-q = "crossing-baseline"
 capital-r = "curly-serifless"
-capital-v = "curly-serifless"
+capital-w = "straight-flat-top-serifless"
 f = "flat-hook-serifless-crossbar-at-x-height"
 j = "flat-hook-serifed"
-l = "tailed-serifed"
 r = "compact-serifed"
 t = "flat-hook-short-neck"
-v = "curly-serifless"
 y = "straight-turn-serifless"
-one = "base"
+zero = "tall-slashed"
 two = "straight-neck"
 four = "closed"
 five = "oblique-upper-left-bar"
 seven = "straight-serifed"
 eight = "two-circles"
-underscore = "above-baseline"
 paren = "large-contour"
 number-sign = "slanted"
 ampersand = "upper-open"
-dollar = "through-cap"
 percent = "rings-continuous-slash"
-question = "corner-flat-hooked"
 lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
@@ -63,9 +56,9 @@ y = "cursive-serifless"
   ]
 
 [buildPlans.iosevka-custom.weights.regular]
-shape = 400
+shape = 450
 menu = 400
-css = 400
+css = 450
 
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
@@ -84,7 +77,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.iosevka-custom.slopes.italic]
-angle = 9.4
+angle = 9.1
 shape = "italic"
 menu = "italic"
 css = "italic"
