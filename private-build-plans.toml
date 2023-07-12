@@ -7,17 +7,21 @@ export-glyph-names = false
 
 [buildPlans.iosevka-custom.variants.design]
 capital-d = "more-rounded-serifless"
+capital-g = "toothless-rounded-serifless-hooked"
 capital-m = "slanted-sides-hanging-serifless"
 capital-q = "crossing-baseline"
 capital-r = "curly-serifless"
 capital-w = "straight-flat-top-serifless"
 f = "flat-hook-serifless-crossbar-at-x-height"
 j = "flat-hook-serifed"
-r = "compact-serifed"
+l = "serifed-flat-tailed"
+r = "corner-hooked-serifed"
 t = "flat-hook-short-neck"
 y = "straight-turn-serifless"
-zero = "tall-slashed"
+zero = "dotted"
+one = "base"
 two = "straight-neck"
+three = "flat-top"
 four = "closed"
 five = "oblique-upper-left-bar"
 seven = "straight-serifed"
@@ -26,6 +30,7 @@ paren = "large-contour"
 number-sign = "slanted"
 ampersand = "upper-open"
 percent = "rings-continuous-slash"
+question = "corner-flat-hooked"
 lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
@@ -38,27 +43,28 @@ f = "flat-hook-tailed-crossbar-at-x-height"
 g = "single-storey-earless-corner"
 h = "tailed-serifless"
 j = "serifed"
+l = "tailed-serifed"
 m = "tailed-serifless"
 n = "tailed-serifless"
 q = "earless-corner-tailed-serifless"
-r = "hookless-top-serifed"
+r = "hookless-serifed"
 t = "standard-short-neck"
 v = "curly-serifless"
 y = "cursive-serifless"
 
-  [buildPlans.iosevka-custom.ligations]
-  inherits = "clike"
-  enables = [
-    "connected-underline",
-    "connected-number-sign",
-    "connected-tilde-as-wave",
-    "connected-hyphen-as-semi-dashed-line",
-  ]
+[buildPlans.iosevka-custom.ligations]
+inherits = "clike"
+enables = [
+  "connected-underline",
+  "connected-number-sign",
+  "connected-tilde-as-wave",
+  "connected-hyphen-as-semi-dashed-line",
+]
 
 [buildPlans.iosevka-custom.weights.regular]
-shape = 450
+shape = 500
 menu = 400
-css = 450
+css = 500
 
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
@@ -77,7 +83,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.iosevka-custom.slopes.italic]
-angle = 9.1
+angle = 8.1
 shape = "italic"
 menu = "italic"
 css = "italic"
