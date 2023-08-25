@@ -7,52 +7,52 @@ export-glyph-names = false
 
 [buildPlans.iosevka-custom.variants.design]
 capital-d = "more-rounded-serifless"
-capital-m = "slanted-sides-hanging-serifless"
+capital-g = "toothless-rounded-serifless-hooked"
+capital-j = "serifless"
 capital-q = "crossing-baseline"
-capital-r = "curly-serifless"
-capital-w = "straight-flat-top-serifless"
+a = "double-storey-serifed"
 f = "flat-hook-serifless-crossbar-at-x-height"
 j = "flat-hook-serifed"
 r = "compact-serifed"
 t = "flat-hook-short-neck"
 y = "straight-turn-serifless"
 zero = "tall-slashed"
+one = "base"
 two = "straight-neck"
 four = "closed"
 five = "oblique-upper-left-bar"
+six = "open-contour"
 seven = "straight-serifed"
 eight = "two-circles"
-paren = "large-contour"
+nine = "open-contour"
 number-sign = "slanted"
 ampersand = "upper-open"
 percent = "rings-continuous-slash"
+question = "corner-flat-hooked"
+guillemet = "straight"
 lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
 [buildPlans.iosevka-custom.variants.italic]
-capital-u = "tailed-serifless"
 capital-v = "curly-serifless"
-a = "single-storey-earless-corner-tailed"
 b = "toothless-corner-serifless"
 f = "flat-hook-tailed-crossbar-at-x-height"
-g = "single-storey-earless-corner"
-h = "tailed-serifless"
-j = "serifed"
-m = "tailed-serifless"
-n = "tailed-serifless"
-q = "earless-corner-tailed-serifless"
 r = "hookless-top-serifed"
 t = "standard-short-neck"
+u = "toothed-serifless"
 v = "curly-serifless"
 y = "cursive-serifless"
 
   [buildPlans.iosevka-custom.ligations]
   inherits = "clike"
   enables = [
-    "connected-underline",
-    "connected-number-sign",
-    "connected-tilde-as-wave",
-    "connected-hyphen-as-semi-dashed-line",
+    "html-comment", # <!--
+    "tildeeq", # ~=
+    "ltgt-slash-tag", # </, />, </>
+    "logic", # /\, \/
+    "connected-underscore", # __
+    "connected-number-sign", # ##
+    "connected-tilde-as-wave", # ~~
   ]
 
 [buildPlans.iosevka-custom.weights.regular]
