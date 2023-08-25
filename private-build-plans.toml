@@ -16,7 +16,6 @@ j = "flat-hook-serifed"
 r = "compact-serifed"
 t = "flat-hook-short-neck"
 y = "straight-turn-serifless"
-zero = "tall-slashed"
 one = "base"
 two = "straight-neck"
 four = "closed"
@@ -42,18 +41,6 @@ t = "standard-short-neck"
 u = "toothed-serifless"
 v = "curly-serifless"
 y = "cursive-serifless"
-
-  [buildPlans.iosevka-custom.ligations]
-  inherits = "clike"
-  enables = [
-    "html-comment", # <!--
-    "tildeeq", # ~=
-    "ltgt-slash-tag", # </, />, </>
-    "logic", # /\, \/
-    "connected-underscore", # __
-    "connected-number-sign", # ##
-    "connected-tilde-as-wave", # ~~
-  ]
 
 [buildPlans.iosevka-custom.weights.regular]
 shape = 450
