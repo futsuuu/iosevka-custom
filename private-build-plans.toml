@@ -20,15 +20,13 @@ one = "base"
 two = "straight-neck"
 four = "closed"
 five = "oblique-upper-left-bar"
-six = "open-contour"
 seven = "straight-serifed"
 eight = "two-circles"
-nine = "open-contour"
+guillemet = "straight"
 number-sign = "slanted"
 ampersand = "upper-open"
 percent = "rings-continuous-slash"
 question = "corner-flat-hooked"
-guillemet = "straight"
 lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
@@ -40,7 +38,7 @@ r = "hookless-top-serifed"
 t = "standard-short-neck"
 u = "toothed-serifless"
 v = "curly-serifless"
-y = "cursive-serifless"
+y = "cursive-flat-hook-serifless"
 
 [buildPlans.iosevka-custom.weights.regular]
 shape = 450
@@ -64,7 +62,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.iosevka-custom.slopes.italic]
-angle = 9.1
+angle = 9
 shape = "italic"
 menu = "italic"
 css = "italic"
