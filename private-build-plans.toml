@@ -41,6 +41,11 @@ l = "serifed-diagonal-tailed"
 t = "diagonal-tailed-short-neck"
 y = "cursive-serifless"
 
+[buildPlans.iosevka-custom.weights.regular]
+shape = 450
+menu = 400
+css = 450
+
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
 menu = 700
