@@ -12,8 +12,10 @@ capital-j = "serifless"
 capital-q = "crossing-baseline"
 a = "double-storey-serifed"
 f = "flat-hook-serifless-crossbar-at-x-height"
+i = "zshaped"
 j = "flat-hook-serifed"
-r = "compact-serifed"
+l = "zshaped"
+r = "corner-hooked-top-serifed"
 t = "flat-hook-short-neck"
 y = "straight-turn-serifless"
 one = "base"
@@ -31,19 +33,13 @@ lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
 [buildPlans.iosevka-custom.variants.italic]
-capital-v = "curly-serifless"
+a = "double-storey-tailed"
 b = "toothless-corner-serifless"
-f = "flat-hook-tailed-crossbar-at-x-height"
-r = "hookless-top-serifed"
-t = "bent-hook-short-neck"
-u = "toothed-serifless"
-v = "curly-serifless"
-y = "cursive-flat-hook-serifless"
-
-[buildPlans.iosevka-custom.weights.regular]
-shape = 450
-menu = 400
-css = 450
+f = "flat-hook-extended-crossbar-at-x-height"
+i = "serifed-diagonal-tailed"
+l = "serifed-diagonal-tailed"
+t = "diagonal-tailed-short-neck"
+y = "cursive-serifless"
 
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
@@ -62,7 +58,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.iosevka-custom.slopes.italic]
-angle = 9
+angle = 9.4
 shape = "italic"
 menu = "italic"
 css = "italic"
