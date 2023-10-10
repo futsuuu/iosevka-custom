@@ -12,18 +12,15 @@ capital-j = "serifless"
 capital-q = "crossing-baseline"
 f = "flat-hook-serifless-crossbar-at-x-height"
 j = "flat-hook-serifed"
-r = "compact-serifed"
 t = "flat-hook-short-neck2"
 y = "straight-turn-serifless"
-zero = "oval-tall-slashed"
+zero = "oval-slashed"
 one = "base"
 two = "straight-neck"
 four = "closed"
 five = "oblique-arched"
-six = "open-contour"
 seven = "straight-serifed"
 eight = "two-circles"
-nine = "open-contour"
 brace = "straight"
 guillemet = "straight"
 number-sign = "slanted"
@@ -40,7 +37,6 @@ b = "toothless-corner-serifless"
 e = "flat-crossbar"
 f = "flat-hook-tailed-crossbar-at-x-height"
 j = "serifed"
-r = "hookless-top-serifed"
 t = "bent-hook-short-neck2"
 y = "cursive-serifless"
 
@@ -55,7 +51,7 @@ menu = 700
 css = 700
 
 [buildPlans.iosevka-custom.widths.normal]
-shape = 600
+shape = 618
 menu = 5
 css = "normal"
 
@@ -66,7 +62,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.iosevka-custom.slopes.italic]
-angle = 9.4
+angle = 9
 shape = "italic"
 menu = "italic"
 css = "italic"
