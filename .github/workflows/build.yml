@@ -25,7 +25,7 @@ jobs:
           mv private-build-plans.toml Iosevka
           cd Iosevka
           npm install
-          npm run build -- ttf::iosevka-custom
+          npm run build -- contents::iosevka-custom
 
       - name: Download patcher
         run: |
