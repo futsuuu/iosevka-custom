@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,7 +26,7 @@ jobs:
           mv private-build-plans.toml Iosevka
           cd Iosevka
           npm install
-          npm run build -- contents::iosevka-custom
+          npm run build -- ttf::iosevka-custom
 
       - name: Download patcher
         run: |
