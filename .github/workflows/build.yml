@@ -35,7 +35,7 @@ jobs:
 
       - name: Patch fonts
         run: |
-          for file in Iosevka/dist/IosevkaCustom/ttf/*; do
+          for file in Iosevka/dist/IosevkaCustom/TTF/*.ttf; do
           fontforge \
           -script fontpatcher/font-patcher \
           --complete --adjust-line-height \
