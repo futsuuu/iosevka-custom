@@ -25,8 +25,8 @@ jobs:
           git clone --depth 1 https://github.com/be5invis/Iosevka.git
           mv private-build-plans.toml Iosevka
           cd Iosevka
-          npm install
-          npm run build -- ttf::iosevka-custom
+          npm ci
+          npm run build -- ttf::IosevkaCustom
 
       - name: Download patcher
         run: |
@@ -35,7 +35,7 @@ jobs:
 
       - name: Patch fonts
         run: |
-          for file in Iosevka/dist/iosevka-custom/ttf/*; do
+          for file in Iosevka/dist/IosevkaCustom/ttf/*; do
           fontforge \
           -script fontpatcher/font-patcher \
           --complete --adjust-line-height \
