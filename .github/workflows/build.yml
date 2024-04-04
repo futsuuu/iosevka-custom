@@ -22,7 +22,7 @@ jobs:
 
       - name: Build Iosevka
         run: |
-          git clone --depth 1 https://github.com/be5invis/Iosevka.git
+          git clone --depth 1 --branch v29.0.5 https://github.com/be5invis/Iosevka.git
           mv private-build-plans.toml Iosevka
           cd Iosevka
           npm ci
@@ -30,7 +30,7 @@ jobs:
 
       - name: Download patcher
         run: |
-          wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip
+          wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/FontPatcher.zip
           unzip -d fontpatcher FontPatcher.zip
 
       - name: Patch fonts
