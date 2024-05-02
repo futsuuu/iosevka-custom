@@ -26,17 +26,26 @@
             cp ${src}/font-patcher $out/bin
           '';
         };
-        iosevkaInputs = [ pkgs.nodejs pkgs.ttfautohint-nox ];
-        nerdfontsInputs = [ font-patcher self.packages.iosevka-custom ];
-
         privateBuildPlans = builtins.readFile ./private-build-plans.toml;
       in {
-        devShells.default = pkgs.mkShell { buildInputs = [ pkgs.nodejs ]; };
+        devShells.default = pkgs.mkShell {
+          buildInputs = [
+            pkgs.fontforge-gtk # GUI
+          ];
+        };
+
         packages = {
-          iosevka-custom = pkgs.buildNpmPackage {
+          iosevka-custom-nerdfont = pkgs.buildNpmPackage {
             inherit version;
-            pname = "iosevka-custom";
-            nativeBuildInputs = iosevkaInputs;
+            pname = "iosevka-custom-nerdfont";
+            nativeBuildInputs = [
+              # iosevka
+              pkgs.nodejs
+              pkgs.ttfautohint-nox # no GUI
+              # nerd-fonts
+              pkgs.fontforge # no GUI
+              font-patcher
+            ];
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
               rev = "refs/tags/v29.2.1";
@@ -52,34 +61,23 @@
 
             buildPhase = ''
               npm run build -- ttf::IosevkaCustom
+
+              for file in dist/IosevkaCustom/TTF/*.ttf; do
+                font-patcher \
+                  --complete --adjust-line-height \
+                  --quiet --outputdir patched \
+                  $file
+              done
             '';
 
             installPhase = ''
-              fontdir="$out/share/fonts/ttf/IosevkaCustom"
+              fontdir="$out/share/fonts/ttf/IosevkaCustom Nerd Font"
               install -d $fontdir
-              install dist/IosevkaCustom/TTF/*.ttf $fontdir
+              install patched/*.ttf $fontdir
             '';
           };
 
-          iosevka-custom-nerdfonts = pkgs.mkDerivation {
-            inherit version;
-            pname = "iosevka-custom-nerdfonts";
-            nativeBuildInputs = nerdfontsInputs;
-
-            buildPhase = ''
-              # for file in dist/IosevkaCustom/TTF/*.ttf; do
-              #   fontforge \
-              #     -script $(which font-patcher) \
-              #     --complete --adjust-line-height \
-              #     --quiet --outputdir font \
-              #     $file
-              # done
-            '';
-
-            installPhase = "";
-          };
-
-          default = self.packages.${system}.iosevka-custom-nerdfonts;
+          default = self.packages.${system}.iosevka-custom-nerdfont;
         };
 
         formatter = pkgs.nixfmt;

@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         run: |
-          nix build .#iosevka-custom
+          nix build .#iosevka-custom-nerdfont
           ls -la result*
 
       - uses: actions/upload-artifact@v4
