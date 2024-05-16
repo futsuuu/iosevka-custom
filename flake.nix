@@ -43,7 +43,7 @@
           iosevka-custom-nerdfont = pkgs.buildNpmPackage {
             inherit version;
             pname = "iosevka-custom-nerdfont";
-            nativeBuildInputs = [ pkgs.fontforge ] ++ fontPatcherInputs
+            nativeBuildInputs = [ pkgs.fontforge pkgs.which ] ++ fontPatcherInputs
               ++ iosevkaInputs;
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
@@ -62,10 +62,9 @@
               npm run build -- ttf::IosevkaCustom
 
               find dist/ -type f
-              font-patcher -v
 
               for file in dist/IosevkaCustom/TTF/*.ttf; do
-                font-patcher \
+                fontforge -script $(which font-patcher) \
                   --complete --adjust-line-height \
                   --quiet --outputdir patched \
                   $file
