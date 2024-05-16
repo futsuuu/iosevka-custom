@@ -61,6 +61,8 @@
             buildPhase = ''
               npm run build -- ttf::IosevkaCustom
 
+              find dist/ -type f
+
               for file in dist/IosevkaCustom/TTF/*.ttf; do
                 font-patcher \
                   --complete --adjust-line-height \
