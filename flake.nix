@@ -62,6 +62,7 @@
               npm run build -- ttf::IosevkaCustom
 
               find dist/ -type f
+              font-patcher -v
 
               for file in dist/IosevkaCustom/TTF/*.ttf; do
                 font-patcher \
