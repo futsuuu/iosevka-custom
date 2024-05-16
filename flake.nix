@@ -27,25 +27,24 @@
           '';
         };
         privateBuildPlans = builtins.readFile ./private-build-plans.toml;
+        fontPatcherInputs =
+          [ pkgs.python311 pkgs.python311Packages.fontforge font-patcher ];
+        iosevkaInputs = [
+          pkgs.nodejs
+          pkgs.ttfautohint-nox # no GUI
+        ];
       in {
         devShells.default = pkgs.mkShell {
-          buildInputs = [
-            pkgs.fontforge-gtk # GUI
-          ];
+          buildInputs = [ pkgs.fontforge-gtk ] ++ fontPatcherInputs
+            ++ iosevkaInputs;
         };
 
         packages = {
           iosevka-custom-nerdfont = pkgs.buildNpmPackage {
             inherit version;
             pname = "iosevka-custom-nerdfont";
-            nativeBuildInputs = [
-              # iosevka
-              pkgs.nodejs
-              pkgs.ttfautohint-nox # no GUI
-              # nerd-fonts
-              pkgs.fontforge # no GUI
-              font-patcher
-            ];
+            nativeBuildInputs = [ pkgs.fontforge ] ++ fontPatcherInputs
+              ++ iosevkaInputs;
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
               rev = "refs/tags/v29.2.1";
