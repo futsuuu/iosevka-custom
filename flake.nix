@@ -12,8 +12,7 @@
         version = "0.12.3";
         pkgs = nixpkgs.legacyPackages.${system};
 
-        font-patcher = pkgs.stdenv.mkDerivation rec {
-          pname = "font-patcher";
+        nerd-font-patcher = pkgs.nerd-font-patcher.overrideAttrs (prev: rec {
           version = "3.2.0";
           src = pkgs.fetchzip {
             url =
@@ -21,30 +20,19 @@
             sha256 = "sha256-gW+TQvwyb+932skNxMZ2TdbobpZ2MK1oJe+Z5IR0nkQ=";
             stripRoot = false;
           };
-          installPhase = ''
-            mkdir -p $out/bin
-            cp ${src}/font-patcher $out/bin
-          '';
-        };
+        });
         privateBuildPlans = builtins.readFile ./private-build-plans.toml;
-        fontPatcherInputs =
-          [ pkgs.python311 pkgs.python311Packages.fontforge font-patcher ];
-        iosevkaInputs = [
-          pkgs.nodejs
-          pkgs.ttfautohint-nox # no GUI
-        ];
       in {
-        devShells.default = pkgs.mkShell {
-          buildInputs = [ pkgs.fontforge-gtk ] ++ fontPatcherInputs
-            ++ iosevkaInputs;
-        };
-
         packages = {
           iosevka-custom-nerdfont = pkgs.buildNpmPackage {
             inherit version;
             pname = "iosevka-custom-nerdfont";
-            nativeBuildInputs = [ pkgs.fontforge pkgs.which ] ++ fontPatcherInputs
-              ++ iosevkaInputs;
+            nativeBuildInputs = [
+              nerd-font-patcher
+              pkgs.nodejs
+              pkgs.ttfautohint-nox
+              pkgs.fontforge
+            ];
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
               rev = "refs/tags/v29.2.1";
@@ -61,10 +49,8 @@
             buildPhase = ''
               npm run build -- ttf::IosevkaCustom
 
-              find dist/ -type f
-
               for file in dist/IosevkaCustom/TTF/*.ttf; do
-                fontforge -script $(which font-patcher) \
+                nerd-font-patcher \
                   --complete --adjust-line-height \
                   --quiet --outputdir patched \
                   $file
@@ -73,8 +59,8 @@
 
             installPhase = ''
               fontdir="$out/share/fonts/ttf/IosevkaCustom Nerd Font"
-              install -d $fontdir
-              install patched/*.ttf $fontdir
+              install -d "$fontdir"
+              install patched/*.ttf "$fontdir"
             '';
           };
 
