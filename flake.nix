@@ -10,10 +10,12 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         version = "0.12.3";
+        nerd-fonts-version = "3.2.1";
+        iosevka-version = "31.0.0";
         pkgs = nixpkgs.legacyPackages.${system};
 
         nerd-font-patcher = pkgs.nerd-font-patcher.overrideAttrs (prev: rec {
-          version = "3.2.0";
+          version = nerd-fonts-version;
           src = pkgs.fetchzip {
             url =
               "https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/FontPatcher.zip";
@@ -35,7 +37,7 @@
             ];
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
-              rev = "refs/tags/v29.2.1";
+              rev = "refs/tags/v${iosevka-version}";
               hash = "sha256-WWumGi6+jaQUGi1eArS9l3G8sOQL4ZetixVB5RWDPQ4=";
             };
             npmDepsHash = "sha256-Gm3R8lWmYbLOfyGW+f8CYXlodp11vMCMAhagILxLKFA=";
