@@ -4,7 +4,6 @@ on:
   push:
     tags:
       - "v*"
-  workflow_dispatch:
 
 jobs:
   release:
@@ -13,38 +12,21 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y fontforge python3-fontforge ttfautohint nodejs npm
+      - uses: cachix/install-nix-action@v26
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
 
-      - name: Build Iosevka
-        run: |
-          git clone --depth 1 --branch v29.0.5 https://github.com/be5invis/Iosevka.git
-          mv private-build-plans.toml Iosevka
-          cd Iosevka
-          npm ci
-          npm run build -- ttf::IosevkaCustom
+      - uses: DeterminateSystems/magic-nix-cache-action@v4
 
-      - name: Download patcher
-        run: |
-          wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.0/FontPatcher.zip
-          unzip -d fontpatcher FontPatcher.zip
-
-      - name: Patch fonts
-        run: |
-          for file in Iosevka/dist/IosevkaCustom/TTF/*.ttf; do
-          fontforge \
-          -script fontpatcher/font-patcher \
-          --complete --adjust-line-height \
-          --quiet --outputdir font \
-          $file
-          done
+      - name: Build
+        run: nix build .#iosevka-custom-nerdfont
 
       - name: Convert to zip
-        run: zip font.zip -r font
+        run: zip font.zip -r "./result/share/fonts/ttf/IosevkaCustom Nerd Font"
 
       - name: Create release
         uses: ncipollo/release-action@v1
