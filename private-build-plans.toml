@@ -6,21 +6,22 @@ noCvSs = true
 exportGlyphNames = false
 
 [buildPlans.IosevkaCustom.variants.design]
-capital-d = "more-rounded-serifless"
-capital-g = "toothless-rounded-serifless-hooked"
-capital-j = "serifless"
-capital-q = "crossing-baseline"
-f = "flat-hook-serifless-crossbar-at-x-height"
-j = "flat-hook-serifed"
-t = "flat-hook-short-neck2"
-y = "straight-turn-serifless"
-zero = "oval-slashed"
 one = "base"
 two = "straight-neck-serifless"
 four = "closed-serifless"
 five = "oblique-arched-serifless"
 seven = "straight-serifed"
 eight = "two-circles"
+zero = "oval-slashed"
+capital-d = "more-rounded-serifless"
+capital-g = "toothless-rounded-serifless-hooked"
+capital-q = "crossing-baseline"
+f = "flat-hook-serifless-crossbar-at-x-height"
+j = "flat-hook-serifed"
+t = "flat-hook-short-neck2"
+y = "straight-turn-serifless"
+asterisk = "penta-mid"
+paren = "large-contour"
 brace = "straight"
 guillemet = "straight"
 number-sign = "slanted"
@@ -31,7 +32,6 @@ lig-ltgteq = "slanted"
 lig-equal-chain = "without-notch"
 
 [buildPlans.IosevkaCustom.variants.italic]
-capital-j = "serifed"
 a = "double-storey-tailed"
 b = "toothless-corner-serifless"
 e = "flat-crossbar"
@@ -62,7 +62,7 @@ menu = "upright"
 css = "normal"
 
 [buildPlans.IosevkaCustom.slopes.Italic]
-angle = 9
+angle = 9.4
 shape = "italic"
 menu = "italic"
 css = "italic"

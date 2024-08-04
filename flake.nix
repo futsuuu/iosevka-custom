@@ -11,7 +11,7 @@
       let
         version = "0.12.3";
         nerd-fonts-version = "3.2.1";
-        iosevka-version = "31.0.0";
+        iosevka-version = "31.1.0";
         pkgs = nixpkgs.legacyPackages.${system};
 
         nerd-font-patcher = pkgs.nerd-font-patcher.overrideAttrs (prev: rec {
@@ -19,7 +19,7 @@
           src = pkgs.fetchzip {
             url =
               "https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/FontPatcher.zip";
-            sha256 = "sha256-gW+TQvwyb+932skNxMZ2TdbobpZ2MK1oJe+Z5IR0nkQ=";
+            sha256 = "sha256-3s0vcRiNA/pQrViYMwU2nnkLUNUcqXja/jTWO49x3BU=";
             stripRoot = false;
           };
         });
@@ -38,9 +38,9 @@
             src = pkgs.fetchgit {
               url = "https://github.com/be5invis/Iosevka.git";
               rev = "refs/tags/v${iosevka-version}";
-              hash = "sha256-WWumGi6+jaQUGi1eArS9l3G8sOQL4ZetixVB5RWDPQ4=";
+              hash = "sha256-4u6/OOrDz3uQc5SQ0TOeBpLZy0hhKZ+PoUS3hzhcuko=";
             };
-            npmDepsHash = "sha256-Gm3R8lWmYbLOfyGW+f8CYXlodp11vMCMAhagILxLKFA=";
+            npmDepsHash = "sha256-6Yfy7qiKPBKJPSutDSosP2ImJW3KPN7RE+CYvUDSDgM=";
 
             inherit privateBuildPlans;
             passAsFile = [ "privateBuildPlans" ];
